@@ -4,7 +4,14 @@ before_script:
     - cd cisco-lab-vagrant/
 stages:
     - validate ansible
+    - staging
 validate:
     stage: validate ansible
     script:
         - bash ../linter.sh
+staging:
+    stage: staging
+    script:
+        - vagrant up
+        - ansible-playbook ../site.yml
+        - vagrant destroy
