@@ -1,0 +1,10 @@
+---
+before_script:
+    - git clone https://github.com/berndonline/cisco-lab-vagrant.git
+    - cd cisco-lab-vagrant/
+stages:
+    - validate ansible
+validate:
+    stage: validate ansible
+    script:
+        - bash ../linter.sh
