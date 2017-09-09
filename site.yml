@@ -8,4 +8,4 @@
       ios_command:
         commands: show version
       register: result
-    - debug: msg={{ result }}
+    - debug: msg={{ result.stdout_lines }}
