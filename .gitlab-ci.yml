@@ -12,6 +12,4 @@ validate:
 staging:
     stage: staging
     script:
-        - vagrant up
-        - ansible-playbook ../site.yml
-        - vagrant destroy
+        - bash ../staging.sh
