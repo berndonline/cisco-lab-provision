@@ -1,4 +1,4 @@
-grant up --color
+vagrant up --color
 exit_code=$?
 sleep 5
 export ANSIBLE_FORCE_COLOR=true
