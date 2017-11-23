@@ -1,11 +1,11 @@
 ---
+
 - hosts: all
+
   connection: local
   user: vagrant
   gather_facts: 'no'
-  tasks:
-    - name: run show version on remote devices
-      ios_command:
-        commands: show version
-      register: result
-    - debug: msg={{ result.stdout_lines }}
+
+  roles:
+    - hostname
+    - interfaces

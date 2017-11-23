@@ -1,25 +1,15 @@
 ---
 stages:
     - validate ansible
-    - staging iosv
-    - staging iosxe
+    - staging
 validate:
     stage: validate ansible
     script:
         - bash ./linter.sh
-staging_iosv:
+staging:
     before_script:
         - git clone https://github.com/berndonline/cisco-lab-vagrant.git
         - cd cisco-lab-vagrant/
-        - cp Vagrantfile-IOSv Vagrantfile
-    stage: staging iosv
-    script:
-        - bash ../staging.sh
-staging_iosxe:
-    before_script:
-        - git clone https://github.com/berndonline/cisco-lab-vagrant.git
-        - cd cisco-lab-vagrant/
-        - cp Vagrantfile-IOSXE Vagrantfile
-    stage: staging iosxe
+    stage: staging
     script:
         - bash ../staging.sh

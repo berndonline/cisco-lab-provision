@@ -1,0 +1,6 @@
+{% if interfaces is defined %}
+{% for port, value in interfaces.items() %}
+interface GigabitEthernet{{ port }}
+ ip address {{ value.address }}
+{% endfor %}
+{% endif %}
