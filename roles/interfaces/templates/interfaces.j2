@@ -1,6 +1,14 @@
+{% if loopback is defined %}
+interface Loopback0
+ ip address {{ loopback.address }} {{ loopback.mask }}
+{% endif %}
+
 {% if interfaces is defined %}
 {% for port, value in interfaces.items() %}
 interface GigabitEthernet{{ port }}
- ip address {{ value.address }}
+{% if 'alias' in value %}
+ description {{ value.alias }}
+{% endif %}
+ ip address {{ value.address }} {{ value.mask }}
 {% endfor %}
 {% endif %}

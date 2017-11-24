@@ -44,3 +44,19 @@
       with_items:
         - '10.0.254.2'
         - '10.0.254.6'
+
+    - name: validate bgp connection from rtr-1
+      ios_ping:
+        dest: '{{ item }}'
+        state: 'present'
+      when: "'rtr-1' in inventory_hostname"
+      with_items:
+        - '10.255.0.4'
+
+    - name: validate bgp connection from rtr-4
+      ios_ping:
+        dest: '{{ item }}'
+        state: 'present'
+      when: "'rtr-4' in inventory_hostname"
+      with_items:
+        - '10.255.0.1'

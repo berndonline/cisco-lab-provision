@@ -1,0 +1,5 @@
+---
+
+- name: write routing config
+  ios_config:
+    src: "templates/routing.j2"

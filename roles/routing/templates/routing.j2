@@ -1,0 +1,20 @@
+{% if bgp is defined %}
+router bgp {{ bgp.asn }}
+ bgp router-id {{ loopback.address }}
+ bgp log-neighbor-changes
+{% for item in bgp.neighbor %}
+ neighbor {{ item.address }} remote-as {{ item.remote_as }}
+{% endfor %}
+ !
+ address-family ipv4
+{% for item in bgp.networks %}
+  network {{ item.network }} mask {{ item.mask }}
+{% endfor %}
+{% for item in bgp.neighbor %}
+  neighbor {{ item.address }} activate
+{% endfor %}
+{% if bgp.maxpath is defined %}
+  maximum-paths eibgp {{ bgp.maxpath }}
+{% endif %}
+ exit-address-family
+{% endif %}

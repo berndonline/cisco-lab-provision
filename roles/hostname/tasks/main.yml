@@ -3,5 +3,5 @@
 - name: set dns and hostname
   ios_system:
     hostname: "{{ hostname }}"
-    domain_name: 'lab.local'
+    domain_name: "{{ domain_name }}"
     lookup_enabled: 'no'
