@@ -1,0 +1,46 @@
+---
+
+- hosts: all
+
+  connection: local
+  user: vagrant
+  gather_facts: 'no'
+
+  tasks:
+    - name: validate connection from rtr-1
+      ios_ping:
+        dest: '{{ item }}'
+        state: 'present'
+      when: "'rtr-1' in inventory_hostname"
+      with_items:
+        - '10.0.255.2'
+        - '10.0.255.6'
+
+    - name: validate connection from rtr-2
+      ios_ping:
+        dest: '{{ item }}'
+        state: 'present'
+      when: "'rtr-2' in inventory_hostname"
+      with_items:
+        - '10.0.255.1'
+        - '10.0.254.1'
+        - '10.0.253.2'
+
+    - name: validate connection from rtr-3
+      ios_ping:
+        dest: '{{ item }}'
+        state: 'present'
+      when: "'rtr-3' in inventory_hostname"
+      with_items:
+        - '10.0.255.5'
+        - '10.0.254.5'
+        - '10.0.253.1'
+
+    - name: validate connection from rtr-4
+      ios_ping:
+        dest: '{{ item }}'
+        state: 'present'
+      when: "'rtr-4' in inventory_hostname"
+      with_items:
+        - '10.0.254.2'
+        - '10.0.254.6'
