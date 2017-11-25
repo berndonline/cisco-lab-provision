@@ -3,9 +3,6 @@
 hostname: rtr-3
 domain_name: lab.local
 
-ntp:
-  - '216.239.35.8'
-
 loopback:
   address: 10.255.0.3
   mask: 255.255.255.255
