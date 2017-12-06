@@ -1,0 +1,4 @@
+---
+- name: deploys snmp configuration
+  ios_config:
+    src: snmp.j2

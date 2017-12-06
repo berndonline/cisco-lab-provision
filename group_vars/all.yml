@@ -1,0 +1,5 @@
+---
+
+snmp_community: public
+snmp_location: lab.local
+snmp_contact: mail@techbloc.net

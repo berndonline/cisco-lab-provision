@@ -10,3 +10,4 @@
     - hostname
     - interfaces
     - routing
+    - snmp
